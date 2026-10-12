@@ -12,48 +12,60 @@ Every project demonstrates the intersection of these two tracks.
 
 ---
 
-## Project 1: RAG Knowledge Base & QA System
+## Project 1: Ops Knowledge Base powered by WeKnora
 
 | Field | Value |
 |---|---|
 | Status | Planned |
 | Priority | 1 (start here) |
-| Est. effort | 1–2 weeks |
-| Tech stack | Python, ChromaDB, sentence-transformers, FastAPI, Docker |
+| Est. effort | 3–5 days |
+| Tech stack | WeKnora (Docker), Python (API wrapper), sanitized ops docs |
 
 ### What
 
-A retrieval-augmented generation pipeline built from scratch — no framework black boxes.
-Ingests operations runbooks and incident playbooks, answers natural-language queries,
-and traces every retrieval step.
+Deploy Tencent's open-source WeKnora as the knowledge platform. Ingest real operations
+runbooks, incident playbooks, and SOPs (sanitized). Tune the retrieval chain for ops
+terminology. Wrap a custom API for ops-specific queries like "what's the playbook for
+this alert?" and produce an evaluation report on retrieval quality.
 
-### Why this one first
+### Why WeKnora instead of building from scratch
 
-- Clearest scope, fastest to a working demo
-- Directly supports Upwork AI Engineer / LLM job categories
-- RAG is the most common AI engineering interview topic
+- WeKnora (Tencent, 33k+ stars, Go) covers the full RAG chain at production quality
+- Building a toy RAG from scratch looks like a learning exercise, not engineering
+- The differentiator is **domain customization**, not reinventing the pipeline
+- Faster to a working demo — 3–5 days vs 2 weeks
+
+### What this project demonstrates
+
+| Capability | How it shows |
+|---|---|
+| Tech selection | Picks mature open-source over reinventing wheels |
+| Domain tuning | General RAG doesn't understand ops terminology — this does |
+| Diagnostic depth | Can identify which retrieval layer causes wrong answers |
+| End-to-end delivery | Deploy → ingest → tune → API → evaluate |
 
 ### Architecture
 
 ```
-Documents → Chunking → Embeddings → Vector Store
-                                        ↓
-Query → Embedding → Vector Search → Cross-encoder Reranking → Context → LLM → Answer
-                                        ↓
-                              Tracing & Evaluation Layer
+WeKnora (Docker Compose)
+├── Ops Docs (sanitized) → Ingestion → Chunking → Embeddings
+├── Vector Store → Reranking → Context Assembly
+├── Custom Ops Query API (Python / FastAPI wrapper)
+└── Evaluation & Tracing Layer
 ```
 
-### Key differentiator
+### Integration with Project 2
 
-Each layer is hand-written, not framework-assembled.
-When the AI returns a wrong answer, can identify exactly which layer caused it and prove it.
+This knowledge base becomes the **retrieval layer** for the AIOps Assistant (Project 2).
+When the agent does root-cause reasoning, it queries WeKnora for relevant playbooks —
+two projects compose into a fuller system.
 
 ### Deliverables
 
-- [ ] GitHub repo with full source
-- [ ] Online demo (query a set of sample runbooks)
+- [ ] GitHub repo: deployment config, API wrapper, evaluation scripts
+- [ ] Online demo: query a set of sample runbooks
 - [ ] Architecture diagram
-- [ ] Evaluation report (retrieval accuracy metrics)
+- [ ] Evaluation report (retrieval accuracy across configurations)
 
 ---
 
@@ -64,7 +76,7 @@ When the AI returns a wrong answer, can identify exactly which layer caused it a
 | Status | Planned |
 | Priority | 2 (core project) |
 | Est. effort | 2–3 weeks |
-| Tech stack | Python, LLM (OpenAI/local), Prometheus API, Docker, FastAPI |
+| Tech stack | Python, LLM (OpenAI/local), Prometheus API, Docker, FastAPI, WeKnora (knowledge layer) |
 
 ### What
 
@@ -77,15 +89,16 @@ Human escalation only when defined conditions are met.
 - Combines 18 years of ops experience with AI engineering
 - Targets real failure modes: alert fatigue, missed off-hour checks, slow RCA
 - Directly matches the "AI Agent Automation for Production Operations" positioning on Upwork
+- Composes with Project 1 (WeKnora knowledge base) for playbook retrieval
 
 ### Architecture
 
 ```
 Scheduler → Collect (Prometheus + ELK) → Detect anomalies
     ↓
-Reasoning Agent → Root-cause hypothesis → Report generation
+Reasoning Agent → Query WeKnora for playbooks → Root-cause hypothesis
     ↓
-Audit & Trace Layer → Human escalation (if threshold met)
+Report Generation → Audit & Trace Layer → Human escalation (if threshold met)
 ```
 
 ### Key differentiator
@@ -214,12 +227,27 @@ Noise-suppressed Dashboard + Root-Cause Report
 ## Execution Timeline
 
 ```
-Week 1–2:   Project 1 (RAG Knowledge Base)        ← fastest to demo
-Week 3–5:   Project 2 (AIOps Assistant) ⭐         ← flagship, most weight
-Week 6–7:   Project 3 (Product Spec Generator)
-Week 8–9:   Project 4 (K8s Optimization Agent)
-Week 10:    Project 5 (Alert Noise Reduction)
+Week 1:       Project 1 (Ops Knowledge Base w/ WeKnora)   ← fastest to demo
+Week 2–4:     Project 2 (AIOps Assistant) ⭐               ← flagship, most weight
+Week 5–6:     Project 3 (Product Spec Generator)
+Week 7–8:     Project 4 (K8s Optimization Agent)
+Week 9–10:    Project 5 (Alert Noise Reduction)
 ```
+
+## Project Composition
+
+```
+Project 1 (WeKnora Knowledge Base)
+    ↓ serves as retrieval layer
+Project 2 (AIOps Assistant) ← queries playbooks during root-cause reasoning
+    ↓ shares alert data
+Project 5 (Alert Noise Reduction) ← feeds alerts to AIOps Agent
+
+Project 3 (Product Spec Generator)   ← standalone
+Project 4 (K8s Optimization Agent)   ← standalone
+```
+
+Projects 1, 2, and 5 form a composed AIOps system. Projects 3 and 4 are standalone.
 
 ## Portfolio Integration
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stripe Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--heading:#061b31;--body:#64748d;--accent:#533afd;--border:#e5edf5;--sans:'Source Sans 3',system-ui,sans-serif;--mono:'Source Code Pro',monospace}
+body{font-family:var(--sans);background:var(--bg);color:var(--heading);line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--border)}
+nav .brand{font-weight:600;color:var(--heading);text-decoration:none}
+nav .links{display:flex;gap:20px}
+nav .links a{color:var(--heading);text-decoration:none;font-size:14px;font-weight:400}
+.hero{padding:64px 0 48px}
+.hero h1{font-size:2.6rem;font-weight:300;letter-spacing:-.8px;line-height:1.1;margin-bottom:10px}
+.hero .role{font-size:1.1rem;color:var(--accent);font-weight:400;margin-bottom:16px}
+.hero p{color:var(--body);font-size:.95rem;max-width:480px;margin-bottom:24px}
+.btns{display:flex;gap:10px}
+.btn-p{background:var(--accent);color:#fff;padding:8px 16px;border-radius:4px;font-size:.85rem;font-weight:400;text-decoration:none;box-shadow:rgba(50,50,93,.25) 0 6px 12px -6px}
+.btn-g{background:transparent;color:var(--accent);padding:8px 16px;border-radius:4px;font-size:.85rem;border:1px solid #b9b9f9;text-decoration:none}
+.section{padding:48px 0;border-top:1px solid var(--border)}
+.section h2{font-size:1.6rem;font-weight:300;letter-spacing:-.3px;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;text-decoration:none;color:var(--heading);box-shadow:rgba(50,50,93,.08) 0 4px 8px -4px}
+.card-thumb{height:100px;background:linear-gradient(135deg,#f6f9fc,#ede9fe);border-bottom:1px solid var(--border)}
+.card-body{padding:14px 16px}
+.card-body h3{font-size:1.15rem;font-weight:300;margin-bottom:4px}
+.card-body p{font-size:.82rem;color:var(--body);margin-bottom:10px}
+.tags{display:flex;gap:6px}
+.tag-pill{font-family:var(--mono);font-size:.72rem;padding:1px 8px;border-radius:4px;background:rgba(83,58,253,.08);color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#" class="brand">Your Name</a><div class="links"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+<div class="hero">
+<h1>Your Name</h1>
+<div class="role">Full-Stack Developer</div>
+<p>Solving real problems with code, shipping products that work.</p>
+<div class="btns"><a href="#" class="btn-p">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+</div>
+<div class="section">
+<h2>Projects</h2>
+<div class="grid">
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag-pill">React</span><span class="tag-pill">Node</span></div></div></a>
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag-pill">FastAPI</span><span class="tag-pill">Redis</span></div></div></a>
+</div>
+</div>
+</div>
+</body>
+</html>

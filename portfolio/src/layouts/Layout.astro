@@ -1,0 +1,139 @@
+---
+import "../styles/global.css";
+import { getLocale, path, switchLangPath, type Lang } from "../data/index";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title, description } = Astro.props;
+const { profile, t } = getLocale(lang);
+
+const pageTitle = title ? `${title} — ${profile.name}` : `${profile.name} — ${profile.title}`;
+const pageDesc = description || profile.tagline;
+const htmlLang = lang === "zh" ? "zh-CN" : "en";
+
+const currentPath = Astro.url.pathname;
+const otherLangPath = switchLangPath(lang, currentPath);
+const otherLangLabel = lang === "en" ? t.langSwitch.zh : t.langSwitch.en;
+const otherLangCode: Lang = lang === "en" ? "zh" : "en";
+
+const homePath = path(lang, "/");
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:type" content="website" />
+    <link rel="alternate" hreflang={otherLangCode === "en" ? "en" : "zh-CN"} href={otherLangPath} />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href={homePath} class="nav-brand">{profile.name}</a>
+        <div class="nav-links">
+          <a href={path(lang, "/#projects")}>{t.nav.projects}</a>
+          <a href={path(lang, "/#skills")}>{t.nav.skills}</a>
+          <a href={path(lang, "/#experience")}>{t.nav.experience}</a>
+          <a href={otherLangPath} class="lang-switch">{otherLangLabel}</a>
+          <a href={path(lang, "/#contact")} class="nav-cta">{t.nav.contact}</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
+        <span>Built with <a href="https://astro.build">Astro</a></span>
+      </div>
+    </footer>
+
+    <style>
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: color-mix(in srgb, var(--c-bg) 85%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--c-border);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+      }
+      .nav-brand {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--c-text);
+      }
+      .nav-brand:hover { color: var(--c-accent); }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 0.9rem;
+      }
+      .nav-links a { color: var(--c-text-muted); }
+      .nav-links a:hover { color: var(--c-text); }
+      .lang-switch {
+        font-weight: 600;
+        font-size: 0.82rem;
+        padding: 3px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--c-border);
+        color: var(--c-text-muted) !important;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .lang-switch:hover {
+        border-color: var(--c-accent);
+        color: var(--c-accent) !important;
+      }
+      .nav-cta {
+        padding: 6px 16px;
+        border-radius: 8px;
+        background: var(--c-accent);
+        color: #fff !important;
+        font-weight: 500;
+        transition: background 0.15s;
+      }
+      .nav-cta:hover { background: var(--c-accent-hover) !important; }
+
+      .footer {
+        border-top: 1px solid var(--c-border);
+        padding: 32px 0;
+        font-size: 0.85rem;
+        color: var(--c-text-dim);
+      }
+      .footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      @media (max-width: 640px) {
+        .nav-links { gap: 14px; }
+        .lang-switch { display: none; }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+---
+import { getLocale, type Lang } from "../data/index";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { skills, t } = getLocale(lang);
+---
+
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">{t.skills.title}</h2>
+    <div class="skills-grid">
+      {skills.map(group => (
+        <div class="skill-card">
+          <h3 class="skill-cat">{group.category}</h3>
+          <div class="skill-items">
+            {group.items.map(item => <span class="skill-tag">{item}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .skill-card { background: var(--c-bg-card); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 20px 22px; }
+  .skill-cat { font-size: 0.85rem; font-weight: 600; color: var(--c-text-dim); margin: 0 0 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-size: 0.88rem; font-family: var(--c-font-mono);
+    padding: 3px 12px; border-radius: 6px;
+    background: var(--c-bg-elevated); border: 1px solid var(--c-border); color: var(--c-text);
+  }
+  @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr; } }
+</style>

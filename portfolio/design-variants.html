@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio Design Variants — 6 Styles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#1a1a1a;color:#fff;padding:0}
+.variants-nav{position:sticky;top:0;z-index:999;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);border-bottom:1px solid #333;display:flex;gap:0;overflow-x:auto;font-size:13px}
+.variants-nav a{padding:10px 18px;color:#888;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s}
+.variants-nav a:hover{color:#fff}
+.variant {border-bottom:4px solid #333}
+.variant-label{position:absolute;top:14px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px;z-index:10;opacity:.5}
+</style>
+</head>
+<body>
+
+<nav class="variants-nav">
+  <a href="#vercel">1. Vercel</a>
+  <a href="#linear">2. Linear</a>
+  <a href="#stripe">3. Stripe</a>
+  <a href="#resend">4. Resend</a>
+  <a href="#supabase">5. Supabase</a>
+  <a href="#ollama">6. Ollama</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 1. VERCEL — Black & White Precision                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="vercel" style="position:relative">
+<div class="variant-label" style="color:#fff">Vercel</div>
+<style>
+#vercel{--vc-bg:#fff;--vc-text:#171717;--vc-muted:#4d4d4d;--vc-border:rgba(0,0,0,.08);--vc-mono:'Geist Mono',monospace;--vc-sans:'Geist',system-ui,sans-serif}
+#vercel *{font-family:var(--vc-sans)}
+#vercel .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#vercel nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--vc-border)}
+#vercel nav a{color:var(--vc-muted);text-decoration:none;font-size:14px;font-weight:500}
+#vercel .hero{padding:80px 0 60px}
+#vercel .hero h1{font-size:3rem;font-weight:600;letter-spacing:-2.4px;line-height:1;margin-bottom:6px;color:var(--vc-text)}
+#vercel .hero .role{font-size:1.3rem;color:var(--vc-accent);font-weight:600;margin-bottom:16px}
+#vercel .hero p{color:var(--vc-muted);font-size:1rem;max-width:520px;margin-bottom:28px}
+#vercel .btns{display:flex;gap:12px}
+#vercel .btn-d{background:#171717;color:#fff;padding:10px 24px;border-radius:6px;font-size:.9rem;font-weight:500;text-decoration:none}
+#vercel .btn-g{background:#fff;color:#171717;padding:10px 24px;border-radius:6px;font-size:.9rem;font-weight:500;border:1px solid var(--vc-border);text-decoration:none}
+#vercel .section{padding:60px 0;border-top:1px solid var(--vc-border)}
+#vercel .section h2{font-size:1.4rem;font-weight:600;margin-bottom:28px}
+#vercel .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#vercel .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:rgba(0,0,0,.08) 0 0 0 1px,rgba(0,0,0,.04) 0 2px 2px;text-decoration:none;color:var(--vc-text)}
+#vercel .card-thumb{height:140px;background:#fafafa;border-bottom:1px solid var(--vc-border)}
+#vercel .card-body{padding:16px 18px}
+#vercel .card-body h3{font-size:1.1rem;font-weight:600;margin-bottom:6px}
+#vercel .card-body p{font-size:.88rem;color:var(--vc-muted);margin-bottom:12px}
+#vercel .tags{display:flex;flex-wrap:wrap;gap:6px}
+#vercel .tag{font-family:var(--vc-mono);font-size:.78rem;padding:2px 10px;border-radius:9999px;background:#ebf5ff;color:#0068d6}
+#vercel .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#vercel .skill-card{background:#fff;box-shadow:rgba(0,0,0,.08) 0 0 0 1px;border-radius:8px;padding:20px}
+#vercel .skill-card h3{font-family:var(--vc-mono);font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:#666;margin-bottom:14px}
+#vercel .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#vercel .skill-item{font-family:var(--vc-mono);font-size:.85rem;padding:3px 12px;border-radius:6px;background:#fafafa;border:1px solid var(--vc-border);color:#171717}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:700;color:#171717">Your Name</a><div style="display:flex;gap:24px"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">Full-Stack Developer</div>
+    <p>Solving real problems with code, shipping products that work. Full-stack developer focused on web applications and API backends.</p>
+    <div class="btns"><a href="#" class="btn-d">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description of what the project does</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Docker</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description of what the project does</p><div class="tags"><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">Redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">TypeScript</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>Backend</h3><div class="skill-items"><span class="skill-item">Node.js</span><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 2. LINEAR — Minimal Dark Purple                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="linear" style="position:relative">
+<div class="variant-label" style="color:#5e6ad2">Linear</div>
+<style>
+#linear{--ln-bg:#08090a;--ln-panel:#0f1011;--ln-surface:#191a1b;--ln-text:#f7f8f8;--ln-muted:#8a8f98;--ln-accent:#5e6ad2;--ln-accent-h:#828fff;--ln-border:rgba(255,255,255,.08);--ln-sans:'Inter',system-ui,sans-serif;--ln-mono:'JetBrains Mono',monospace}
+#linear *{font-family:var(--ln-sans)}
+#linear .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#linear nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--ln-border)}
+#linear nav a{color:#d0d6e0;text-decoration:none;font-size:13px;font-weight:510}
+#linear .hero{padding:80px 0 60px}
+#linear .hero h1{font-size:3rem;font-weight:510;letter-spacing:-1.056px;line-height:1;color:var(--ln-text)}
+#linear .hero .role{font-size:1.3rem;color:var(--ln-accent-h);font-weight:590;margin:4px 0 16px}
+#linear .hero p{color:var(--ln-muted);font-size:1rem;max-width:520px;margin-bottom:28px}
+#linear .btns{display:flex;gap:12px}
+#linear .btn-p{background:var(--ln-accent);color:#fff;padding:8px 16px;border-radius:6px;font-size:.9rem;font-weight:500;text-decoration:none}
+#linear .btn-g{background:rgba(255,255,255,.02);color:#e2e4e7;padding:8px 16px;border-radius:6px;font-size:.9rem;border:1px solid var(--ln-border);text-decoration:none}
+#linear .section{padding:60px 0;border-top:1px solid var(--ln-border)}
+#linear .section h2{font-size:1.4rem;font-weight:590;margin-bottom:28px;color:var(--ln-text)}
+#linear .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#linear .card{background:rgba(255,255,255,.02);border:1px solid var(--ln-border);border-radius:8px;overflow:hidden;text-decoration:none;color:var(--ln-text)}
+#linear .card-thumb{height:140px;background:var(--ln-surface);border-bottom:1px solid var(--ln-border)}
+#linear .card-body{padding:16px 18px}
+#linear .card-body h3{font-size:1.1rem;font-weight:590;margin-bottom:6px}
+#linear .card-body p{font-size:.88rem;color:var(--ln-muted);margin-bottom:12px}
+#linear .tags{display:flex;flex-wrap:wrap;gap:6px}
+#linear .tag{font-family:var(--ln-mono);font-size:.75rem;padding:2px 10px;border-radius:9999px;background:rgba(94,106,210,.15);color:var(--ln-accent-h);border:1px solid rgba(94,106,210,.2)}
+#linear .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#linear .skill-card{background:rgba(255,255,255,.02);border:1px solid var(--ln-border);border-radius:8px;padding:20px}
+#linear .skill-card h3{font-size:.82rem;font-weight:510;color:var(--ln-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+#linear .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#linear .skill-item{font-size:.85rem;padding:3px 12px;border-radius:6px;background:rgba(255,255,255,.04);color:var(--ln-text);border:1px solid var(--ln-border)}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:600;color:#f7f8f8">Your Name</a><div style="display:flex;gap:24px"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">Full-Stack Developer</div>
+    <p>Solving real problems with code, shipping products that work. Full-stack developer focused on web applications and API backends.</p>
+    <div class="btns"><a href="#" class="btn-p">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description of what the project does</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description of what the project does</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>Backend</h3><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 3. STRIPE — Elegant Gradient                           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="stripe" style="position:relative">
+<div class="variant-label" style="color:#533afd">Stripe</div>
+<style>
+#stripe{--st-bg:#fff;--st-heading:#061b31;--st-body:#64748d;--st-accent:#533afd;--st-border:#e5edf5;--st-sans:'Source Sans 3',system-ui,sans-serif;--st-mono:'Source Code Pro',monospace}
+#stripe *{font-family:var(--st-sans)}
+#stripe .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#stripe nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--st-border)}
+#stripe nav a{color:var(--st-heading);text-decoration:none;font-size:14px;font-weight:400}
+#stripe .hero{padding:80px 0 60px}
+#stripe .hero h1{font-size:3rem;font-weight:300;letter-spacing:-.96px;line-height:1.1;color:var(--st-heading);margin-bottom:12px}
+#stripe .hero .role{font-size:1.2rem;color:var(--st-accent);font-weight:400;margin-bottom:16px}
+#stripe .hero p{color:var(--st-body);font-size:1.05rem;max-width:520px;margin-bottom:28px;line-height:1.5}
+#stripe .btns{display:flex;gap:12px}
+#stripe .btn-p{background:var(--st-accent);color:#fff;padding:8px 16px;border-radius:4px;font-size:.9rem;font-weight:400;text-decoration:none;box-shadow:rgba(50,50,93,.25) 0 6px 12px -6px}
+#stripe .btn-g{background:transparent;color:var(--st-accent);padding:8px 16px;border-radius:4px;font-size:.9rem;border:1px solid #b9b9f9;text-decoration:none}
+#stripe .section{padding:60px 0;border-top:1px solid var(--st-border)}
+#stripe .section h2{font-size:1.8rem;font-weight:300;letter-spacing:-.36px;margin-bottom:28px;color:var(--st-heading)}
+#stripe .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#stripe .card{background:#fff;border:1px solid var(--st-border);border-radius:6px;overflow:hidden;text-decoration:none;color:var(--st-heading);box-shadow:rgba(50,50,93,.08) 0 6px 12px -6px;transition:box-shadow .2s}
+#stripe .card-thumb{height:140px;background:linear-gradient(135deg,#f6f9fc,#ede9fe);border-bottom:1px solid var(--st-border)}
+#stripe .card-body{padding:16px 18px}
+#stripe .card-body h3{font-size:1.2rem;font-weight:300;letter-spacing:-.22px;margin-bottom:6px}
+#stripe .card-body p{font-size:.88rem;color:var(--st-body);margin-bottom:12px}
+#stripe .tags{display:flex;flex-wrap:wrap;gap:6px}
+#stripe .tag{font-family:var(--st-mono);font-size:.75rem;padding:1px 8px;border-radius:4px;background:rgba(83,58,253,.08);color:var(--st-accent)}
+#stripe .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#stripe .skill-card{background:#fff;border:1px solid var(--st-border);border-radius:6px;padding:20px}
+#stripe .skill-card h3{font-size:.82rem;font-weight:400;color:var(--st-body);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+#stripe .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#stripe .skill-item{font-size:.85rem;padding:3px 12px;border-radius:4px;background:#f6f9fc;border:1px solid var(--st-border);color:var(--st-heading)}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:600;color:#061b31">Your Name</a><div style="display:flex;gap:24px"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">Full-Stack Developer</div>
+    <p>Solving real problems with code, shipping products that work. Full-stack developer focused on web applications and API backends.</p>
+    <div class="btns"><a href="#" class="btn-p">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>Backend</h3><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 4. RESEND — Dark Minimal + Mono                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="resend" style="position:relative">
+<div class="variant-label" style="color:#f0f0f0">Resend</div>
+<style>
+#resend{--rs-bg:#000;--rs-text:#f0f0f0;--rs-muted:#a1a4a5;--rs-border:rgba(214,235,253,.19);--rs-sans:'Inter',system-ui,sans-serif;--rs-mono:'Geist Mono',monospace}
+#resend *{font-family:var(--rs-sans)}
+#resend .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#resend nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--rs-border)}
+#resend nav a{color:var(--rs-text);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.35px}
+#resend .hero{padding:80px 0 60px}
+#resend .hero h1{font-size:3.2rem;font-weight:400;line-height:1;letter-spacing:-.96px;color:var(--rs-text)}
+#resend .hero .role{font-size:1.15rem;color:var(--rs-muted);font-weight:400;margin:12px 0 20px}
+#resend .hero p{color:var(--rs-muted);font-size:1rem;max-width:520px;margin-bottom:28px;line-height:1.5}
+#resend .btns{display:flex;gap:12px}
+#resend .btn-w{background:#fff;color:#000;padding:5px 16px;border-radius:9999px;font-size:.85rem;font-weight:500;text-decoration:none}
+#resend .btn-t{background:transparent;color:var(--rs-text);padding:5px 16px;border-radius:9999px;font-size:.85rem;border:1px solid var(--rs-border);text-decoration:none}
+#resend .section{padding:60px 0;border-top:1px solid var(--rs-border)}
+#resend .section h2{font-size:1.4rem;font-weight:400;margin-bottom:28px;letter-spacing:-.8px}
+#resend .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#resend .card{background:transparent;border:1px solid var(--rs-border);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--rs-text)}
+#resend .card-thumb{height:140px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--rs-border)}
+#resend .card-body{padding:16px 18px}
+#resend .card-body h3{font-size:1.1rem;font-weight:500;margin-bottom:6px}
+#resend .card-body p{font-size:.88rem;color:var(--rs-muted);margin-bottom:12px}
+#resend .tags{display:flex;flex-wrap:wrap;gap:6px}
+#resend .tag{font-family:var(--rs-mono);font-size:.72rem;padding:2px 10px;border-radius:9999px;border:1px solid var(--rs-border);color:var(--rs-muted)}
+#resend .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#resend .skill-card{background:transparent;border:1px solid var(--rs-border);border-radius:16px;padding:20px}
+#resend .skill-card h3{font-size:.75rem;font-weight:500;color:var(--rs-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+#resend .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#resend .skill-item{font-family:var(--rs-mono);font-size:.8rem;padding:3px 12px;border-radius:9999px;border:1px solid var(--rs-border);color:var(--rs-text)}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:600">Your Name</a><div style="display:flex;gap:24px"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">Full-Stack Developer</div>
+    <p>Solving real problems with code, shipping products that work.</p>
+    <div class="btns"><a href="#" class="btn-w">View Work</a><a href="#" class="btn-t">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>Backend</h3><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 5. SUPABASE — Emerald Dark                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="supabase" style="position:relative">
+<div class="variant-label" style="color:#3ecf8e">Supabase</div>
+<style>
+#supabase{--sb-bg:#171717;--sb-surface:#1c1c1c;--sb-text:#fafafa;--sb-muted:#898989;--sb-accent:#3ecf8e;--sb-accent2:#00c573;--sb-border:#2e2e2e;--sb-border2:#363636;--sb-sans:'Inter',system-ui,sans-serif;--sb-mono:'Source Code Pro',monospace}
+#supabase *{font-family:var(--sb-sans)}
+#supabase .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#supabase nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--sb-border)}
+#supabase nav a{color:var(--sb-text);text-decoration:none;font-size:14px;font-weight:500}
+#supabase .nav-links{display:flex;gap:24px;align-items:center}
+#supabase .nav-cta{background:var(--sb-accent);color:#000!important;padding:6px 20px;border-radius:9999px;font-weight:600}
+#supabase .hero{padding:80px 0 60px}
+#supabase .hero h1{font-size:2.8rem;font-weight:400;line-height:1;letter-spacing:-.96px;color:var(--sb-text);margin-bottom:8px}
+#supabase .hero .role{font-size:1.2rem;color:var(--sb-accent);font-weight:400;margin-bottom:16px}
+#supabase .hero p{color:var(--sb-muted);font-size:1rem;max-width:520px;margin-bottom:28px}
+#supabase .btns{display:flex;gap:12px}
+#supabase .btn-p{background:var(--sb-accent);color:#000;padding:8px 24px;border-radius:9999px;font-size:.85rem;font-weight:600;text-decoration:none}
+#supabase .btn-s{background:#0f0f0f;color:var(--sb-text);padding:8px 24px;border-radius:9999px;font-size:.85rem;border:1px solid var(--sb-border2);text-decoration:none}
+#supabase .section{padding:60px 0;border-top:1px solid var(--sb-border)}
+#supabase .section h2{font-size:1.4rem;font-weight:400;margin-bottom:28px;color:var(--sb-text)}
+#supabase .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#supabase .card{background:var(--sb-surface);border:1px solid var(--sb-border);border-radius:8px;overflow:hidden;text-decoration:none;color:var(--sb-text)}
+#supabase .card-thumb{height:140px;background:#0f0f0f;border-bottom:1px solid var(--sb-border)}
+#supabase .card-body{padding:16px 18px}
+#supabase .card-body h3{font-size:1.1rem;font-weight:400;letter-spacing:-.16px;margin-bottom:6px}
+#supabase .card-body p{font-size:.88rem;color:var(--sb-muted);margin-bottom:12px}
+#supabase .tags{display:flex;flex-wrap:wrap;gap:6px}
+#supabase .tag{font-family:var(--sb-mono);font-size:.75rem;padding:2px 10px;border-radius:6px;background:rgba(62,207,142,.12);color:var(--sb-accent);border:1px solid rgba(62,207,142,.2)}
+#supabase .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#supabase .skill-card{background:var(--sb-surface);border:1px solid var(--sb-border);border-radius:8px;padding:20px}
+#supabase .skill-card h3{font-family:var(--sb-mono);font-size:.75rem;font-weight:400;text-transform:uppercase;letter-spacing:1.2px;color:var(--sb-muted);margin-bottom:14px}
+#supabase .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#supabase .skill-item{font-size:.85rem;padding:3px 12px;border-radius:6px;background:#0f0f0f;border:1px solid var(--sb-border);color:var(--sb-text)}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:600;color:#3ecf8e">● Your Name</a><div class="nav-links"><a href="#">Projects</a><a href="#">Skills</a><a href="#" class="nav-cta">Contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">Full-Stack Developer</div>
+    <p>Solving real problems with code, shipping products that work.</p>
+    <div class="btns"><a href="#" class="btn-p">View Work</a><a href="#" class="btn-s">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag">React</span><span class="tag">Docker</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>Backend</h3><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- 6. OLLAMA — Terminal Geek                              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="variant" id="ollama" style="position:relative">
+<div class="variant-label" style="color:#000">Ollama</div>
+<style>
+#ollama{--ol-bg:#fff;--ol-text:#000;--ol-muted:#737373;--ol-border:#e5e5e5;--ol-sans:system-ui,-apple-system,sans-serif;--ol-mono:'JetBrains Mono',monospace}
+#ollama *{font-family:var(--ol-sans)}
+#ollama .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+#ollama nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--ol-border)}
+#ollama nav a{color:#000;text-decoration:none;font-size:14px;font-weight:400}
+#ollama .hero{padding:80px 0 60px}
+#ollama .hero h1{font-size:3rem;font-weight:500;line-height:1;color:var(--ol-text);margin-bottom:12px}
+#ollama .hero .role{font-family:var(--ol-mono);font-size:1rem;color:var(--ol-muted);margin-bottom:16px}
+#ollama .hero p{color:var(--ol-muted);font-size:1rem;max-width:520px;margin-bottom:28px}
+#ollama .btns{display:flex;gap:12px}
+#ollama .btn-b{background:#000;color:#fff;padding:10px 24px;border-radius:9999px;font-size:.85rem;font-weight:500;text-decoration:none}
+#ollama .btn-g{background:#e5e5e5;color:#262626;padding:10px 24px;border-radius:9999px;font-size:.85rem;font-weight:500;border:1px solid var(--ol-border);text-decoration:none}
+#ollama .section{padding:60px 0;border-top:1px solid var(--ol-border)}
+#ollama .section h2{font-size:1.4rem;font-weight:500;margin-bottom:28px}
+#ollama .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#ollama .card{background:#fff;border:1px solid var(--ol-border);border-radius:12px;overflow:hidden;text-decoration:none;color:#000}
+#ollama .card-thumb{height:140px;background:#fafafa;border-bottom:1px solid var(--ol-border)}
+#ollama .card-body{padding:16px 18px}
+#ollama .card-body h3{font-size:1.1rem;font-weight:500;margin-bottom:6px}
+#ollama .card-body p{font-size:.88rem;color:var(--ol-muted);margin-bottom:12px}
+#ollama .tags{display:flex;flex-wrap:wrap;gap:6px}
+#ollama .tag{font-family:var(--ol-mono);font-size:.72rem;padding:2px 10px;border-radius:9999px;background:#e5e5e5;color:#262626}
+#ollama .skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#ollama .skill-card{background:#fff;border:1px solid var(--ol-border);border-radius:12px;padding:20px}
+#ollama .skill-card h3{font-family:var(--ol-mono);font-size:.72rem;color:var(--ol-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+#ollama .skill-items{display:flex;flex-wrap:wrap;gap:8px}
+#ollama .skill-item{font-size:.85rem;padding:3px 12px;border-radius:9999px;background:#fafafa;border:1px solid var(--ol-border);color:#000}
+</style>
+<div class="wrap">
+  <nav><a href="#" style="font-weight:500">~ Your Name</a><div style="display:flex;gap:24px"><a href="#">projects</a><a href="#">skills</a><a href="#">contact</a></div></nav>
+  <div class="hero">
+    <h1>Your Name</h1>
+    <div class="role">$ full-stack-developer --status="available"</div>
+    <p>Solving real problems with code, shipping products that work.</p>
+    <div class="btns"><a href="#" class="btn-b">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+  </div>
+  <div class="section">
+    <h2>projects</h2>
+    <div class="grid">
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag">react</span><span class="tag">node</span></div></div></a>
+      <a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag">python</span><span class="tag">redis</span></div></div></a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>skills</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>frontend</h3><div class="skill-items"><span class="skill-item">React</span><span class="skill-item">Next.js</span></div></div>
+      <div class="skill-card"><h3>backend</h3><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">PostgreSQL</span></div></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

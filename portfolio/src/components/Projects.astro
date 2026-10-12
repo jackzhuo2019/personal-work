@@ -1,0 +1,88 @@
+---
+import { getLocale, path, type Lang } from "../data/index";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { projects, t } = getLocale(lang);
+const featured = projects.filter(p => p.featured);
+const rest = projects.filter(p => !p.featured);
+---
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">{t.projects.title}</h2>
+
+    <div class="project-grid">
+      {featured.map(project => (
+        <a href={path(lang, `/projects/${project.slug}`)} class="project-card">
+          <div class="project-thumb">
+            <img src={project.image} alt={project.title} loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <h3>{project.title}</h3>
+              {project.featured && <span class="badge-star">★ {t.projects.featured}</span>}
+            </div>
+            <p class="project-tagline">{project.tagline}</p>
+            <div class="project-tech">
+              {project.tech.map(t2 => <span class="tag">{t2}</span>)}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    {rest.length > 0 && (
+      <div class="project-list">
+        <h3 class="subsection-title">{t.projects.others}</h3>
+        {rest.map(project => (
+          <a href={path(lang, `/projects/${project.slug}`)} class="project-row">
+            <div>
+              <span class="project-row-title">{project.title}</span>
+              <span class="project-row-tag">{project.tagline}</span>
+            </div>
+            <div class="project-row-tech">
+              {project.tech.slice(0, 3).map(t2 => <span class="tag">{t2}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .project-card {
+    display: block; background: var(--c-bg-card); border: 1px solid var(--c-border);
+    border-radius: var(--radius); overflow: hidden; text-decoration: none; color: var(--c-text);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .project-card:hover { border-color: var(--c-border-hover); transform: translateY(-2px); }
+  .project-thumb { aspect-ratio: 16 / 9; overflow: hidden; background: var(--c-bg-elevated); border-bottom: 1px solid var(--c-border); }
+  .project-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .project-card:hover .project-thumb img { transform: scale(1.03); }
+  .project-body { padding: 16px 18px; }
+  .project-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .project-header h3 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+  .badge-star { font-size: 0.72rem; color: #f59e0b; background: rgba(245, 158, 11, 0.12); padding: 1px 8px; border-radius: 5px; }
+  .project-tagline { font-size: 0.9rem; color: var(--c-text-muted); margin: 0 0 12px; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-list { margin-top: 40px; }
+  .subsection-title { font-size: 1rem; font-weight: 600; color: var(--c-text-muted); margin-bottom: 16px; }
+  .project-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0; border-top: 1px solid var(--c-border);
+    text-decoration: none; color: var(--c-text); transition: color 0.15s;
+  }
+  .project-row:hover { color: var(--c-accent); }
+  .project-row-title { font-weight: 600; margin-right: 10px; }
+  .project-row-tag { font-size: 0.9rem; color: var(--c-text-muted); }
+  .project-row-tech { display: flex; gap: 6px; flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .project-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .project-row-tech { display: none; }
+  }
+</style>

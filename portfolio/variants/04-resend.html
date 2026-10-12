@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resend Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#000;--text:#f0f0f0;--muted:#a1a4a5;--border:rgba(214,235,253,.19);--sans:'Inter',system-ui,sans-serif;--mono:'Geist Mono',monospace}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--border)}
+nav .brand{font-weight:600;color:#f0f0f0;text-decoration:none}
+nav .links{display:flex;gap:20px}
+nav .links a{color:#f0f0f0;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.35px}
+.hero{padding:64px 0 48px}
+.hero h1{font-size:2.8rem;font-weight:400;line-height:1;letter-spacing:-.8px;margin-bottom:10px}
+.hero .role{font-size:1.1rem;color:var(--muted);margin-bottom:16px}
+.hero p{color:var(--muted);font-size:.95rem;max-width:480px;margin-bottom:24px}
+.btns{display:flex;gap:10px}
+.btn-w{background:#fff;color:#000;padding:5px 16px;border-radius:9999px;font-size:.82rem;font-weight:500;text-decoration:none}
+.btn-t{background:transparent;color:#f0f0f0;padding:5px 16px;border-radius:9999px;font-size:.82rem;border:1px solid var(--border);text-decoration:none}
+.section{padding:48px 0;border-top:1px solid var(--border)}
+.section h2{font-size:1.3rem;font-weight:400;margin-bottom:24px;letter-spacing:-.5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:transparent;border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:#f0f0f0}
+.card-thumb{height:100px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border)}
+.card-body{padding:14px 16px}
+.card-body h3{font-size:1rem;font-weight:500;margin-bottom:4px}
+.card-body p{font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.tags{display:flex;gap:6px}
+.tag-pill{font-family:var(--mono);font-size:.7rem;padding:2px 8px;border-radius:9999px;border:1px solid var(--border);color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#" class="brand">Your Name</a><div class="links"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+<div class="hero">
+<h1>Your Name</h1>
+<div class="role">Full-Stack Developer</div>
+<p>Solving real problems with code, shipping products that work.</p>
+<div class="btns"><a href="#" class="btn-w">View Work</a><a href="#" class="btn-t">Contact Me</a></div>
+</div>
+<div class="section">
+<h2>Projects</h2>
+<div class="grid">
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag-pill">React</span><span class="tag-pill">Docker</span></div></div></a>
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="exts" style="display:flex;gap:6px"><span class="tag-pill">FastAPI</span><span class="tag-pill">Redis</span></div></div></a>
+</div>
+</div>
+</div>
+</body>
+</html>

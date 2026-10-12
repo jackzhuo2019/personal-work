@@ -1,0 +1,43 @@
+---
+import { getLocale, type Lang } from "../data/index";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { experiences, t } = getLocale(lang);
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title">{t.experience.title}</h2>
+    <div class="timeline">
+      {experiences.map(exp => (
+        <div class="exp-item">
+          <div class="exp-meta">
+            <span class="exp-role">{exp.role}</span>
+            <span class="exp-period">{exp.period}</span>
+          </div>
+          <div class="exp-company">{exp.company}</div>
+          <p class="exp-desc">{exp.description}</p>
+          <ul class="exp-achievements">
+            {exp.achievements.map(a => <li>{a}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-item { padding: 24px 0; border-top: 1px solid var(--c-border); }
+  .exp-item:first-child { border-top: none; }
+  .exp-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .exp-role { font-weight: 600; font-size: 1.05rem; }
+  .exp-period { font-size: 0.85rem; color: var(--c-text-dim); font-family: var(--c-font-mono); }
+  .exp-company { font-size: 0.92rem; color: var(--c-accent); margin-bottom: 8px; }
+  .exp-desc { font-size: 0.95rem; color: var(--c-text-muted); margin: 0 0 10px; }
+  .exp-achievements { list-style: none; padding: 0; margin: 0; }
+  .exp-achievements li { font-size: 0.9rem; color: var(--c-text-muted); padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .exp-achievements li::before { content: "▸"; position: absolute; left: 0; color: var(--c-accent); }
+
+  @media (max-width: 640px) { .exp-meta { flex-direction: column; gap: 2px; } }
+</style>

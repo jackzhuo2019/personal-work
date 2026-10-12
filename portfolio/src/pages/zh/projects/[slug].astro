@@ -1,0 +1,112 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getLocale, path, type Lang } from "../../../data/index";
+
+const lang: Lang = "zh";
+const { projects, t } = getLocale(lang);
+
+export function getStaticPaths() {
+  const { projects } = getLocale("zh");
+  return projects.map(project => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout lang={lang} title={project.title} description={project.tagline}>
+  <article class="project-page">
+    <div class="container">
+      <a href={path(lang, "/#projects")} class="back-link">{t.projectPage.back}</a>
+
+      <header class="project-header">
+        <h1>{project.title}</h1>
+        <p class="project-tagline">{project.tagline}</p>
+        <div class="project-tech">
+          {project.tech.map(t2 => <span class="tag">{t2}</span>)}
+        </div>
+      </header>
+
+      {project.image && (
+        <div class="project-hero-img">
+          <img src={project.image} alt={project.title} />
+        </div>
+      )}
+
+      {project.links && (project.links.demo || project.links.github) && (
+        <div class="project-links">
+          {project.links.demo && (
+            <a href={project.links.demo} target="_blank" rel="noopener" class="btn-primary">
+              {t.projectPage.demo}
+            </a>
+          )}
+          {project.links.github && (
+            <a href={project.links.github} target="_blank" rel="noopener" class="btn-secondary">
+              {t.projectPage.source}
+            </a>
+          )}
+        </div>
+      )}
+
+      <div class="star-section">
+        <h2 class="star-heading">{t.projectPage.situation}</h2>
+        <p>{project.situation}</p>
+      </div>
+      <div class="star-section">
+        <h2 class="star-heading">{t.projectPage.task}</h2>
+        <p>{project.task}</p>
+      </div>
+      <div class="star-section">
+        <h2 class="star-heading">{t.projectPage.action}</h2>
+        <p>{project.action}</p>
+      </div>
+      <div class="star-section">
+        <h2 class="star-heading star-result">{t.projectPage.result}</h2>
+        <p class="result-text">{project.result}</p>
+      </div>
+
+      {project.highlights && project.highlights.length > 0 && (
+        <div class="star-section">
+          <h2 class="star-heading">{t.projectPage.highlights}</h2>
+          <ul class="highlights-list">
+            {project.highlights.map(h => <li>{h}</li>)}
+          </ul>
+        </div>
+      )}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .project-page { padding: 40px 0 80px; }
+  .back-link { display: inline-block; font-size: 0.9rem; color: var(--c-text-muted); margin-bottom: 32px; }
+  .back-link:hover { color: var(--c-accent); }
+  .project-header { margin-bottom: 32px; }
+  .project-header h1 { font-size: 2rem; font-weight: 800; margin: 0 0 8px; }
+  .project-tagline { font-size: 1.1rem; color: var(--c-text-muted); margin: 0 0 16px; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+  .project-hero-img { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-border); margin-bottom: 32px; }
+  .project-hero-img img { width: 100%; display: block; }
+  .project-links { display: flex; gap: 12px; margin-bottom: 40px; }
+  .btn-primary { padding: 10px 24px; border-radius: 8px; background: var(--c-accent); color: #fff; font-weight: 600; font-size: 0.95rem; }
+  .btn-primary:hover { background: var(--c-accent-hover); color: #fff; }
+  .btn-secondary { padding: 10px 24px; border-radius: 8px; border: 1px solid var(--c-border); color: var(--c-text); font-weight: 500; font-size: 0.95rem; }
+  .btn-secondary:hover { border-color: var(--c-border-hover); }
+  .star-section { margin-bottom: 32px; }
+  .star-heading { font-size: 1.1rem; font-weight: 600; margin: 0 0 10px; color: var(--c-text); }
+  .star-result { color: var(--c-green); }
+  .star-section p { font-size: 1rem; color: var(--c-text-muted); margin: 0; line-height: 1.8; }
+  .result-text { font-weight: 500; color: var(--c-text) !important; }
+  .highlights-list { list-style: none; padding: 0; margin: 0; }
+  .highlights-list li {
+    padding: 10px 16px; margin-bottom: 8px;
+    background: var(--c-bg-card); border: 1px solid var(--c-border);
+    border-radius: 8px; font-size: 0.95rem; color: var(--c-text-muted);
+    position: relative; padding-left: 36px;
+  }
+  .highlights-list li::before { content: "⚡"; position: absolute; left: 12px; }
+
+  @media (max-width: 640px) { .project-header h1 { font-size: 1.5rem; } }
+</style>

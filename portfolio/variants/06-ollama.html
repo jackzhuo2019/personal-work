@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name  ="viewport" content="width=device-width,initial-scale=1">
+<title>Ollama Style</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--text:#000;--muted:#737373;--border:#e5e5e5;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid var(--border)}
+nav .brand{font-weight:500;color:#000;text-decoration:none;font-family:var(--mono)}
+nav .links{display:flex;gap:20px}
+nav .links a{color:#000;text-decoration:none;font-size:14px;font-weight:400}
+.hero{padding:64px 0 48px}
+.hero h1{font-size:2.6rem;font-weight:500;line-height:1;margin-bottom:12px}
+.hero .role{font-family:var(--mono);font-size:.95rem;color:var(--muted);margin-bottom:16px}
+.hero p{color:var(--muted);font-size:.95rem;max-width:480px;margin-bottom:24px}
+.btns{display:flex;gap:10px}
+.btn-b{background:#000;color:#fff;padding:10px 24px;border-radius:9999px;font-size:.82rem;font-weight:500;text-decoration:none}
+.btn-g{background:#e5e5e5;color:#262626;padding:10px 24px;border-radius:9999px;font-size:.82rem;font-weight:500;border:1px solid var(--border);text-decoration:none}
+.section{padding:48px 0;border-top:1px solid var(--border)}
+.section h2{font-size:1.3rem;font-weight:500;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:#000}
+.card-thumb{height:100px;background:#fafafa;border-bottom:1px solid var(--border)}
+.card-body{padding:14px 16px}
+.card-body h3{font-size:1rem;font-weight:500;margin-bottom:4px}
+.card-body p{font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.tags{display:flex;gap:6px}
+.tag-pill{font-family:var(--mono);font-size:.7rem;padding:2px 10px;border-radius:9999px;background:#e5e5e5;color:#262626}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#" class="brand">~ Your Name</a><div class="links"><a href="#">projects</a><a href="#">skills</a><a href="#">contact</a></div></nav>
+<div class="hero">
+<h1>Your Name</h1>
+<div class="role">$ full-stack-developer --status="available"</div>
+<p>Solving real problems with code, shipping products that work.</p>
+<div class="btns"><a href="#" class="btn-b">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+</div>
+<div class="section">
+<h2>projects</h2>
+<div class="grid">
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag-pill">react</span><span class="tag-pill">node</span></div></div></a>
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="tag-pill">python</span><span class="tag-pill">redis</span></div></div></a>
+</div>
+</div>
+</div>
+</body>
+</html>

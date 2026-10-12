@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vercel Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--text:#171717;--muted:#4d4d4d;--border:rgba(0,0,0,.08);--mono:'Geist Mono',monospace;--sans:'Geist',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid rgba(0,0,0,.08)}
+nav .brand{font-weight:600;color:#171717;text-decoration:none}
+nav .links{display:flex;gap:20px}
+nav .links a{color:#666;text-decoration:none;font-size:14px;font-weight:500}
+.hero{padding:64px 0 48px}
+.hero h1{font-size:2.6rem;font-weight:600;letter-spacing:-2px;line-height:1;margin-bottom:6px}
+.hero .role{font-size:1.2rem;color:var(--text);font-weight:400;margin-bottom:16px}
+.hero p{color:var(--muted);font-size:.95rem;max-width:480px;margin-bottom:24px}
+.btns{display:flex;gap:10px}
+.btn-d{background:#171717;color:#fff;padding:8px 20px;border-radius:6px;font-size:.85rem;font-weight:500;text-decoration:none}
+.btn-g{background:#fff;color:#171717;padding:8px 20px;border-radius:6px;font-size:.85rem;border:1px solid rgba(0,0,0,.08);text-decoration:none}
+.section{padding:48px 0;border-top:1px solid rgba(0,0,0,.08)}
+.section h2{font-size:1.3rem;font-weight:600;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:rgba(0,0,0,.08) 0 0 0 1px,rgba(0,0,0,.04) 0 2px 2px;text-decoration:none;color:#171717}
+.card-thumb{height:100px;background:linear-gradient(135deg,#fafafa,#f0f0f0);border-bottom:1px solid rgba(0,0,0,.08)}
+.card-body{padding:14px 16px}
+.card-body h3{font-size:1rem;font-weight:600;margin-bottom:4px}
+.card-body p{font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.tags{display:flex;gap:6px}
+.tag-pill{font-family:var(--mono);font-size:.72rem;padding:2px 8px;border-radius:9999px;background:#ebf5ff;color:#0068d6}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#" class="brand">Your Name</a><div class="links"><a href="#">Projects</a><a href="#">Skills</a><a href="#">Contact</a></div></nav>
+<div class="hero">
+<h1>Your Name</h1>
+<div class="role">Full-Stack Developer</div>
+<p>Solving real problems with code, shipping products that work.</p>
+<div class="btns"><a href="#" class="btn-d">View Work</a><a href="#" class="btn-g">Contact Me</a></div>
+</div>
+<div class="section">
+<h2>Projects</h2>
+<div class="grid">
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project One</h3><p>One-line description</p><div class="tags"><span class="tag-pill">React</span><span class="tag-pill">Docker</span></div></div></a>
+<a href="#" class="card"><div class="card-thumb"></div><div class="card-body"><h3>Project Two</h3><p>One-line description</p><div class="tags"><span class="anytag">Node</span><span class="tag-pill">Python</span></div></div></a>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+import type { UIStrings, Lang } from "./types";
+
+export const ui: Record<Lang, UIStrings> = {
+  en: {
+    nav: { projects: "Projects", skills: "Skills", experience: "Experience", contact: "Contact" },
+    hero: { status: "Available for freelance work", statusUpwork: "Open to freelance / full-time", viewWork: "View Work", contactMe: "Contact Me" },
+    projects: { title: "Projects", featured: "Featured", others: "Other Projects" },
+    skills: { title: "Tech Stack" },
+    experience: { title: "Experience" },
+    contact: { title: "Get in Touch", email: "Email", github: "GitHub", upwork: "Upwork", resume: "Résumé", downloadPdf: "Download PDF" },
+    projectPage: {
+      back: "← Back to projects",
+      demo: "Live Demo →",
+      source: "Source",
+      situation: "Situation",
+      task: "Task",
+      action: "Action",
+      result: "Result",
+      highlights: "Highlights",
+    },
+    langSwitch: { en: "EN", zh: "中文" },
+  },
+  zh: {
+    nav: { projects: "项目", skills: "技能", experience: "经历", contact: "联系我" },
+    hero: { status: "可接兼职机会", statusUpwork: "可接兼职 / 全职机会", viewWork: "查看作品", contactMe: "联系我" },
+    projects: { title: "项目作品", featured: "精选", others: "其他项目" },
+    skills: { title: "技术栈" },
+    experience: { title: "工作经历" },
+    contact: { title: "联系我", email: "邮箱", github: "GitHub", upwork: "Upwork", resume: "简历", downloadPdf: "下载 PDF" },
+    projectPage: {
+      back: "← 返回项目列表",
+      demo: "在线 Demo →",
+      source: "源码",
+      situation: "背景 (Situation)",
+      task: "任务 (Task)",
+      action: "方案 (Action)",
+      result: "成果 (Result)",
+      highlights: "技术亮点",
+    },
+    langSwitch: { en: "EN", zh: "中文" },
+  },
+};

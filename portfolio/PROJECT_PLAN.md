@@ -16,10 +16,11 @@ Every project demonstrates the intersection of these two tracks.
 
 | Field | Value |
 |---|---|
-| Status | Planned |
+| Status | In Progress |
 | Priority | 1 (start here) |
 | Est. effort | 3–5 days |
 | Tech stack | WeKnora (Docker), Python (API wrapper), sanitized ops docs |
+| Deployed at | `172.17.23.94` (internal, Ubuntu 24.04, Docker 29.9.0) |
 
 ### What
 
@@ -62,10 +63,13 @@ two projects compose into a fuller system.
 
 ### Deliverables
 
-- [ ] GitHub repo: deployment config, API wrapper, evaluation scripts
-- [ ] Online demo: query a set of sample runbooks
-- [ ] Architecture diagram
+- [x] WeKnora deployed via Docker Compose (5 containers: app, frontend, postgres, redis, docreader)
+- [ ] Configure LLM model in WeKnora settings (OpenAI/DeepSeek/Qwen)
+- [ ] Ingest sanitized ops runbooks and incident playbooks
+- [ ] Tune chunking and embedding for ops terminology
+- [ ] Build FastAPI wrapper for alert-to-playbook queries
 - [ ] Evaluation report (retrieval accuracy across configurations)
+- [ ] Architecture diagram
 
 ---
 

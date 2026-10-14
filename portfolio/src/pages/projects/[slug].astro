@@ -29,21 +29,6 @@ const { project } = Astro.props;
         </div>
       </header>
 
-      {project.image && (
-        <div class="project-hero-img">
-          <img src={project.image} alt={project.title} />
-        </div>
-      )}
-
-      {project.architecture && (
-        <div class="star-section">
-          <h2 class="star-heading">{t.projectPage.architecture}</h2>
-          <div class="arch-diagram">
-            <img src={project.architecture} alt={`${project.title} architecture`} />
-          </div>
-        </div>
-      )}
-
       {project.links && (project.links.demo || project.links.github) && (
         <div class="project-links">
           {project.links.demo && (
@@ -75,6 +60,15 @@ const { project } = Astro.props;
         <h2 class="star-heading star-result">{t.projectPage.result}</h2>
         <p class="result-text">{project.result}</p>
       </div>
+
+      {project.architecture && (
+        <div class="star-section">
+          <h2 class="star-heading">{t.projectPage.architecture}</h2>
+          <div class="arch-diagram">
+            <img src={project.architecture} alt={`${project.title} architecture`} />
+          </div>
+        </div>
+      )}
 
       {project.highlights && project.highlights.length > 0 && (
         <div class="star-section">

@@ -67,7 +67,7 @@ two projects compose into a fuller system.
 - [x] Configure LLM model in WeKnora settings (OpenAI/DeepSeek/Qwen)
 - [x] Ingest sanitized ops runbooks and incident playbooks (8 docs uploaded)
 - [x] Tune chunking and embedding for ops terminology (chunk=1000 chars, overlap=140, parent-child off)
-- [ ] Build FastAPI wrapper for alert-to-playbook queries
+- [~] FastAPI wrapper for alert-to-playbook queries (deferred — Agent calls WeKnora API directly, extract later if needed)
 - [ ] Evaluation report (retrieval accuracy across configurations)
 - [ ] Architecture diagram
 

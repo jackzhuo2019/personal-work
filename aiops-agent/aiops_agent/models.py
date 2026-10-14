@@ -72,15 +72,32 @@ class RetrievalResult:
 
 
 @dataclass
+class CommandResult:
+    """Result of an executed command (imported from command_executor)."""
+    command: str = ""
+    level: str = "L0"
+    exit_code: int = 0
+    stdout: str = ""
+    stderr: str = ""
+    executed_at: str = ""
+    approved_by: str = "auto"
+    truncated: bool = False
+    error: str = ""
+
+
+@dataclass
 class AgentDecision:
     """A decision made by the reasoning agent."""
     anomaly: Anomaly
     retrieved_playbooks: list  # list of RetrievalResult
-    root_cause_hypothesis: str
-    recommended_actions: list  # list of action strings
-    escalation_required: bool
-    escalation_reason: str
-    confidence: float  # 0.0 to 1.0
+    investigation_commands: list = field(default_factory=list)  # executed L0/L1 commands
+    evidence: list = field(default_factory=list)  # list of CommandResult summaries
+    proposed_operations: list = field(default_factory=list)  # L2+ commands requiring approval
+    root_cause_hypothesis: str = ""
+    recommended_actions: list = field(default_factory=list)  # action strings
+    escalation_required: bool = False
+    escalation_reason: str = ""
+    confidence: float = 0.0
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     raw_llm_response: str = ""
 

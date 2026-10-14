@@ -80,6 +80,33 @@ class ReportGenerator:
                     "",
                 ])
 
+                # Investigation evidence
+                if decision.evidence:
+                    lines.append("**Investigation Evidence**:")
+                    lines.append("")
+                    for ev in decision.evidence:
+                        status = "✅" if ev.get("exit_code") == 0 else "❌"
+                        cmd = ev.get("command", "")
+                        output = ev.get("output", "")[:200]
+                        level = ev.get("level", "L0")
+                        lines.append(f"- {status} `[{level}]` `{cmd}`")
+                        if output:
+                            lines.append("  ```")
+                            lines.append(output)
+                            lines.append("  ```")
+                    lines.append("")
+
+                # Proposed operations (require approval)
+                if decision.proposed_operations:
+                    lines.append("**⚠️ Proposed Operations (require human approval)**:")
+                    lines.append("")
+                    for op in decision.proposed_operations:
+                        cmd = op.get("command", "")
+                        reason = op.get("reason", "")
+                        risk = op.get("risk", "L2")
+                        lines.append(f"- `[{risk}]` `{cmd}` — {reason}")
+                    lines.append("")
+
                 # Recommended actions
                 if decision.recommended_actions:
                     lines.append("**Recommended Actions**:")

@@ -1,0 +1,14 @@
+[project]
+name = "spec-generator"
+version = "0.1.0"
+description = "Product Spec Generator — turns business descriptions into PRD, state machine, prototype, and test cases"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "pyyaml>=6.0",
+    "jinja2>=3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]

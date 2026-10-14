@@ -1,0 +1,6 @@
+llm:
+  base_url: "http://172.17.20.47:8094/v1"
+  api_key: "8729c6c1-417d-40cf-aaa2-ba3e66bd4940"
+  model: "Qwen/Qwen3.8-27B-FP8"
+
+output_dir: "./output"

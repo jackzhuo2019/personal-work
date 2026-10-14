@@ -64,8 +64,8 @@ two projects compose into a fuller system.
 ### Deliverables
 
 - [x] WeKnora deployed via Docker Compose (5 containers: app, frontend, postgres, redis, docreader)
-- [ ] Configure LLM model in WeKnora settings (OpenAI/DeepSeek/Qwen)
-- [ ] Ingest sanitized ops runbooks and incident playbooks
+- [x] Configure LLM model in WeKnora settings (OpenAI/DeepSeek/Qwen)
+- [x] Ingest sanitized ops runbooks and incident playbooks (8 docs uploaded)
 - [ ] Tune chunking and embedding for ops terminology
 - [ ] Build FastAPI wrapper for alert-to-playbook queries
 - [ ] Evaluation report (retrieval accuracy across configurations)

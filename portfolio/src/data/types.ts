@@ -21,11 +21,13 @@ export interface Project {
   tagline: string;
   tech: string[];
   image: string;
+  architecture?: string;
   situation: string;
   task: string;
   action: string;
   result: string;
   highlights: string[];
+  metrics?: { label: string; value: string }[];
   links: { demo?: string; github?: string };
   featured: boolean;
 }
@@ -67,6 +69,8 @@ export interface UIStrings {
     action: string;
     result: string;
     highlights: string;
+    architecture: string;
+    metrics: string;
   };
   langSwitch: { en: string; zh: string };
 }

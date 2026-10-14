@@ -1,0 +1,45 @@
+# AIOps Agent Configuration
+# Copy to settings.yaml and fill in your values
+
+prometheus:
+  url: "http://172.17.23.94:30090"
+  # No auth required for this instance
+
+weknora:
+  url: "http://172.17.23.94:8080"
+  api_key: "sk-F1YjqeCgPzoyzlbya32o1TjQ4SUOK-abFadUK01BRkM"
+  knowledge_base_id: "a137c2bc-0b80-4360-bb3d-0180571c9ffc"
+  search_top_k: 3
+
+llm:
+  base_url: "http://172.17.20.47:8094/v1"
+  api_key: "8729c6c1-417d-40cf-aaa2-ba3e66bd4940"
+  model: "Qwen/Qwen3.8-27B-FP8"
+
+# Anomaly detection thresholds
+thresholds:
+  node_cpu_usage_pct: 80        # P1 if > 80% for 10 min
+  node_mem_usage_pct: 85        # P1 if > 85%
+  node_disk_usage_pct: 85       # P1 if > 85%
+  pod_restart_count: 5          # P1 if > 5 restarts in 30 min
+  pod_not_ready: true            # P1 if any pod not Ready
+  http_5xx_rate_pct: 1          # P1 if > 1%
+  redis_mem_usage_pct: 90       # P1 if > 90%
+  mysql_slave_lag_sec: 10       # P1 if > 10 sec
+
+# Inspection schedule
+schedule:
+  interval_seconds: 300         # 5 minutes
+  full_inspection_interval: 3600 # 1 hour (collect all metrics)
+
+# Escalation rules
+escalation:
+  p0_immediate: true             # Always escalate P0
+  p1_after_minutes: 10           # Escalate P1 if not resolved in 10 min
+  notify_channels:
+    - "console"                   # Print to console
+
+# Report output
+report:
+  output_dir: "./reports/output"
+  format: "markdown"              # markdown | json | both

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+config/settings.yaml
+reports/output/
+reports/audit/
+.env
